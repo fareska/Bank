@@ -1,0 +1,62 @@
+html{
+    background-Color: #ecf0f1;
+}
+
+#linksBar{
+    text-align: center;
+    padding-top: 15%;
+}
+
+#links{
+    background-Color:#2980b9;
+    margin: 10px;
+    display: grid;
+    justify-content: center;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+}
+
+a{
+    color: white;
+    margin: 80px;
+    text-decoration: none;
+}
+
+#transactions{
+    margin: 10px;
+    text-align: center;
+    display: grid;
+}
+#transactions>div{
+    border: black solid;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+}
+
+#balance{
+    position: absolute;
+    padding-top: 5%;
+    display: inline-block;
+    padding-left: 45%;
+    font-size:large ;
+}
+
+#operation{
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    justify-content: center;
+}
+
+#operation>a{
+    margin: 0;
+}
+
+.input{
+    width: 100%;
+}
+
+
+#list{
+    display: grid;
+    justify-content: center;
+}
