@@ -14,10 +14,12 @@ class Breakdown extends Component {
         let listToRender = []
         for (let [key, val] of Object.entries(list)) {
             listToRender.push(`${key} : ${val}`)     
+            // listToRender.push({category: key, sum: val})     
         }
         return listToRender
     }
 
+    
     render() {
         let transactions = this.props.transactions
 

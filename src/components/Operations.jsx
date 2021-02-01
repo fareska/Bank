@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+// import Button from '@material-ui/core'
+import Button from '@material-ui/core/Button';
 
 class Operations extends Component {
     constructor() {
@@ -21,11 +23,7 @@ class Operations extends Component {
             vendor: this.state.vendorInput,
             category: this.state.categoryInput
         }
-        this.setState({
-            amountInput: '',
-            vendorInput: '',
-            categoryInput: '',
-        })
+        this.setState({amountInput: '', vendorInput: '', categoryInput: '', })
         return this.props.addOperation(expense)
     }
 
@@ -35,11 +33,7 @@ class Operations extends Component {
             vendor: this.state.vendorInput,
             category: this.state.categoryInput
         }
-        this.setState({
-            amountInput: '',
-            vendorInput: '',
-            categoryInput: '',
-        })
+        this.setState({amountInput: '', vendorInput: '', categoryInput: '', })
         return this.props.addOperation(income)
     }
 
@@ -50,8 +44,8 @@ class Operations extends Component {
                 <div className='input'><input type="text" placeholder='Vendor' value={this.state.vendorInput} onChange={this.handleVendor} /></div>
                 <div className='input'><input type="text" placeholder='category' value={this.state.categoryInput} onChange={this.handleCategory} /></div>
                 <Link to='transactions'>
-                    <button id='withdraw' onClick={this.addExpense}>Withdraw</button>
-                    <button id='deposit' onClick={this.addIncome}>Deposit</button>
+                    <Button variant="contained" color="secondary" size='small' id='withdraw' onClick={this.addExpense}>Withdraw</Button>
+                    <Button variant="contained" color='primary' size='small' id='deposit' onClick={this.addIncome}>Deposit</Button>
                 </Link>
             </div>
         )

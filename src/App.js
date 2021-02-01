@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom'
 import './App.css';
-import Transactions from './components/Transactions.js'
-import Operations from './components/Operations.js'
-import Breakdown from './components/Breakdown.js'
+import Transactions from './components/Transactions.jsx'
+import Operations from './components/Operations.jsx'
+import Breakdown from './components/Breakdown.jsx'
+import TemApp from './components/TemApp';
+import Header from './components/Header';
 const axios = require('axios')
 
 class App extends Component {
@@ -19,7 +21,7 @@ class App extends Component {
 
   calculateTotal = () => {
     let total = 0
-    this.state.allTransactions.map(m => total += m.amount)
+    this.state.allTransactions.forEach(m => total += m.amount)
     this.setState({ budget: total })
   }
 
@@ -48,26 +50,20 @@ class App extends Component {
   addOperation = (operation) => this.saveTransaction(operation)
   delete = id => this.deleteTransaction(id)
 
+  // <TemApp budget={this.state.budget} />
+  // <Route path='/transactions' exact render={() => <Transactions delete={this.delete} transactions={this.state.allTransactions} />} />
+  // <Route path='/operations' exact render={() => <Operations addOperation={this.addOperation} />} />
+  // <Route path='/Breakdown' exact render={() => <Breakdown transactions={this.state.allTransactions} />} />
   render() {
 
     return (
       <Router>
         <div className="App">
-          <div id="balance" style={this.state.budget > 500 ? { color: "green" } : { color: "red" }}>
-            <p>   Your current balance : {this.state.budget} </p>
-          </div>
-          <div id='linksBar'>
-            <div id='links'>
-            <Link to='transactions'> <span>Transactions</span></Link>
-            <Link to='operations'> <span>Add Operation</span></Link>
-            <Link to='Breakdown'> <span>Breakdown</span></Link>
-
-            </div>
-          </div>
+          <Header delete={this.delete} transactions={this.state.allTransactions}
+            addOperation={this.addOperation}
+            transactions={this.state.allTransactions}
+            budget={this.state.budget} />
         </div>
-        <Route path='/transactions' exact render={() => <Transactions key={'transactions'} delete={this.delete} transactions={this.state.allTransactions} />} />
-        <Route path='/operations' exact render={() => <Operations key={'operation'} addOperation={this.addOperation} />} />
-        <Route path='/Breakdown' exact render={() => <Breakdown key={'Breakdown'} transactions={this.state.allTransactions} />} />
       </Router>
     );
   }
