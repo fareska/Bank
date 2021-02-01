@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee, faTrashAlt } from '@fortawesome/free-solid-svg-icons'
+import {  faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 class Transaction extends Component {
 
@@ -14,7 +14,7 @@ class Transaction extends Component {
                 <div><span className='amount' > Amount: {transaction.amount}  </span></div>
                 <div> <span className='vendor'> Vendor: {transaction.vendor}  </span></div>
                 <div><span> Category: {transaction.category}  </span></div>
-                <div><FontAwesomeIcon onClick={this.delete} icon={faTrashAlt} /></div>
+                <div><FontAwesomeIcon onClick={this.delete} color='white' icon={faTrashAlt} /></div>
             </div>
         )
     }
